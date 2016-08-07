@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#casi{
+			margin-left: 600px;
+			margin-top: 200px;
+			transition: 3s;
+		}
+		#point{
+			position: absolute;
+			top:445px;
+			right: 685px; 
+		}
+		#spn{
+			position: absolute;
+			top:200px;
+			right: 300px;
+		}
+		#spn:active { 
+   			background-image:url("spinH.png");
+		}
+		.main{
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div class="price"><h1 class="pul">200</h1></div>
+	<div class="main">
+		<img   id="casi" src="img/charx.png" alt="">
+		<img id="point" src="img/firlat.png" alt="">
+		<img onclick="firla()" id="spn" src="img/spin.png" alt="">
+	</div>
+	<script type="text/javascript">
+	var negdpul='200';
+		function firla(){
+			
+				var degre=18;
+				var rnd=Math.random()*100;
+				var casino=document.getElementsByTagName("img")[0];
+				rnd=Math.floor(rnd)
+				var qaliq=rnd%20
+				
+				var hbir=document.getElementsByTagName("h1")[0]
+				
+				degre=degre*rnd
+				casino.style.transform = "rotate("+degre+"deg)";
+				if(qaliq==0){
+					negdpul=negdpul+15;
+					setTimeout(function(){ alert("UDDUN"); }, 3000);
+					setTimeout(function(){ hbir.innerHTML=negdpul; }, 3000);
+				}
+				else if(qaliq%2==1 || qaliq==1){
+					negdpul=negdpul-15;
+
+					setTimeout(function(){ alert("UDUZDUN"); }, 3000);
+					setTimeout(function(){hbir.innerHTML=negdpul; }, 3000);
+					
+				}
+				else if(qaliq==6 || qaliq==12 || qaliq==16){
+					negdpul=negdpul+200;
+					setTimeout(function(){ alert("QƏPİK"); }, 3000);
+					setTimeout(function(){ hbir.innerHTML=negdpul}, 3000);
+				}
+				else{
+					negdpul=negdpul;
+					setTimeout(function(){ alert("DƏYİŞMƏDİ"); }, 3000);
+					setTimeout(function(){ hbir.innerHTML=negdpul}, 3000);
+
+				}
+
+	}
+	</script>
+</body>
+</html>
